@@ -69,7 +69,7 @@ To extract, visualize, and communicate meaningful business insights from the cur
 
 ## 🏗️ Architecture Overview
 
-![Data Warehouse Architecture](./docs/architecture.png)
+![Data Warehouse Architecture](Docs/architecture.png)
 
 > *Three-tiered architecture — Bronze → Silver → Gold — with source systems feeding into SQL Server, and outputs consumed by BI tools and ML platforms.*
 
