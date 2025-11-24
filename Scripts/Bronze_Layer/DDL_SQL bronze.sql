@@ -2,7 +2,7 @@
 
 This directory contains the **core Data Definition Language (DDL)** scripts that establish the raw foundation of the data warehouse.
 
-## 🎯 Purpose of `DDL_SQL bronze`
+## 🎯 Purpose of `DDL_SQL bronze.sql`
 
 This script creates **six raw staging tables** in the `bronze` schema—three from the **CRM** system and three from the **ERP** system. These tables:
 
