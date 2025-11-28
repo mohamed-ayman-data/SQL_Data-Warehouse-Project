@@ -56,14 +56,9 @@ To extract, visualize, and communicate meaningful business insights from the cur
   - Operational efficiency metrics from ERP data.
 
 - **Modeling Strategy**:  
-  - Star Schema with `Fact_Sales`, `Dim_Customer`, `Dim_Product`, `Dim_Date`.  
-  - Aggregation tables for pre-calculated KPIs to improve query performance.  
+  - Star Schema with `Fact_Sales`, `Dim_Customer`, `Dim_Product`.  
   - Views in the Gold layer expose clean, business-ready data for consumption.
 
-- **Output**:  
-  - Interactive dashboards for executives and analysts.  
-  - PDF/PowerPoint summaries for monthly business reviews.  
-  - Machine learning-ready datasets for future predictive modeling.
 
 ---
 
