@@ -103,6 +103,64 @@ To extract, visualize, and communicate meaningful business insights from the cur
 - **Consumption**: BI & Reporting, Machine Learning  
 
 ---
+## 🗂️ Repository Structure
+
+This project follows a **layered data warehouse architecture** (Bronze → Silver → Gold), ensuring separation of concerns, data lineage, and business readiness. All components are organized for clarity, reproducibility, and team collaboration.
+
+### 📁 `datasets/`
+Contains raw source data used for ingestion:
+- **`datasets/CRM/`**  
+  - `cust_info.csv`, `prd_info.csv`, `sales_details.csv`  
+  → Raw customer, product, and sales data from the CRM system.
+- **`datasets/ERP/`**  
+  - `CUST_AZ12.csv`, `LOC_A101.csv`, `PX_CAT_G1V2.csv`  
+  → Demographic, geographic, and product category data from the ERP system.
+
+> ✅ *All data is loaded into the Bronze layer without modification to preserve source fidelity.*
+
+---
+
+### 📁 `docs/`
+Comprehensive documentation to support onboarding, review, and governance:
+- `Architecture.png`, `Data_Flow.png`  
+  → Visual representation of the end-to-end data pipeline and Medallion architecture.
+- `Relations.drawio`  
+  → Interactive entity-relationship diagram (ERD) of the Gold layer.
+- `Data_Catalog.md`  
+  → Business-friendly data dictionary for all Gold layer tables (dimensions and facts).
+
+> 🎯 *Designed to accelerate team understanding and ensure consistent interpretation of metrics.*
+
+---
+
+### 📁 `scripts/`
+Modular, idempotent SQL scripts organized by architectural layer:
+
+#### 🔹 **Bronze Layer** (`scripts/bronze_layer/`)
+- `01_DDL_Bronze_Layer.sql`  
+  → Creates raw staging tables for CRM and ERP data.
+- `02_load_bronze.sql`  
+  → Ingests CSV files via `BULK INSERT` with logging and error handling.
+
+#### 🔸 **Silver Layer** (`scripts/silver_layer/`)
+- `03_DDL_Silver_Layer.sql`  
+  → Defines cleansed and conformed tables.
+- `04_loading_silver_layer.sql`  
+  → Applies data quality rules, standardization, and enrichment.
+
+#### 🔹 **Gold Layer** (`scripts/gold_layer/`)
+- `05_DDL_Gold_Layer.sql`  
+  → Builds business-ready views using a star schema (dimensions + facts).
+
+#### ⚙️ **Initialization**
+- `00_initialization_DB.sql`  
+  → Creates the `DataWarehouse` database and `bronze`/`silver`/`gold` schemas.
+
+> 🔄 *Scripts follow a numbered execution sequence (`00_` → `05_`) for reliable, repeatable deployment.*
+
+---
+
+This structure reflects **industry best practices** in data engineering—ensuring traceability from source to insight, while enabling scalability, auditability, and self-service analytics.
 
 ## 👤 About Me
 
